@@ -161,6 +161,9 @@ fn generate_wrapper(
     let mut file = File::create(bindings_header).unwrap();
     let mut headers = Vec::new();
 
+    headers.push("SFML/System.h");
+    link_sfml_subsystem("system");
+
     if feat_audio {
         headers.push("SFML/Audio.h");
         link_sfml_subsystem("audio");
